@@ -1,0 +1,40 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+<style>
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #4CAF50;
+
+}
+</style>
+<div class="container">
+  <div class="jumbotron" style="background-color:black !important;">
+    <h1 style="color:#4CAF50">FindYourGender.com </h1>      
+<div class="panel-group">
+      <br><br><br><br><br>
+<!-- Main Input For Receiving Query to our ML -->	
+      	<form action="{{ url_for('predict')}}" method="POST" align="center">
+			<input type="text" name="namequery">
+
+			<button type="submit" class="btn btn-primary">What am I?</button>
+			</form>
+
+<!-- Main Input For Receiving Query to our ML --> 
+
+
+
+  </div>
+            
+
+
+</div>
+
+
+{% endblock %}
+
+{% block styles %}
+{{super()}} <!-- Allows Javascripts and other styles to be inclusive in bootstrap -->
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='css/styles.css')}}">
+{% endblock %}
